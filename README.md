@@ -6,7 +6,7 @@
 <h1 align="center">Kubernetes Image Volume Playground</h1>
 
 <p align="center">
-A Proof of Concept demonstrating the new **Image Volume** feature introduced in Kubernetes. This repository shows how an OCI image can be mounted directly inside a Pod as a **read-only filesystem**, without running the image as a container.</p>
+A Proof of Concept demonstrating the new Image Volume feature introduced in Kubernetes. This repository shows how an OCI image can be mounted directly inside a Pod as a read-only filesystem, without running the image as a container.</p>
 
 <p align="center">
 
@@ -17,11 +17,6 @@ A Proof of Concept demonstrating the new **Image Volume** feature introduced in 
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.34+-326CE5?logo=kubernetes&logoColor=white)
 ![OCI Image](https://img.shields.io/badge/OCI-Image%20Volume-blue)
 </p>
-
-
-A Proof of Concept demonstrating the new **Image Volume** feature introduced in Kubernetes.
-
-This repository shows how an OCI image can be mounted directly inside a Pod as a **read-only filesystem**, without running the image as a container.
 
 ---
 
@@ -338,7 +333,8 @@ Delete kind cluster:
 
 ```bash
 kind delete cluster --name image-volume-lab
-``
+```
+
 
 ---
 
