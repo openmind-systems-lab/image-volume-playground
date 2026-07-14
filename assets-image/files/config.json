@@ -1,0 +1,9 @@
+{
+  "app": "image-volume-demo",
+  "environment": "dev",
+  "version": "1.0.0",
+  "features": {
+    "imageVolume": true,
+    "readonlyAssets": true
+  }
+}

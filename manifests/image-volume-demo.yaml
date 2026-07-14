@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: image-volume-playground
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: image-volume-demo
+  namespace: image-volume-playground
+spec:
+  containers:
+  - name: app
+    image: busybox
+    command:
+    - sh
+    - -c
+    - |
+      echo "=== Old image volume (busybox) ==="
+      find /assets-old
+
+      echo ""
+      echo "=== New image volume (my-assets) ==="
+      find /assets-new
+
+      echo ""
+      echo "Config.json:"
+      cat /assets-new/assets/config.json
+
+      echo ""
+      echo "App.conf:"
+      cat /assets-new/assets/app.conf
+
+      sleep 3600
+
+    volumeMounts:
+    # Ancien volume basé sur busybox
+    - name: assets-old
+      mountPath: /assets-old
+
+    # Nouveau volume basé sur ton image OCI
+    - name: assets-new
+      mountPath: /assets-new
+
+  volumes:
+  # Ancien ImageVolume
+  - name: assets-old
+    image:
+      reference: docker.io/library/busybox:latest
+      pullPolicy: IfNotPresent
+
+  # Nouveau ImageVolume construit avec ton Dockerfile
+  - name: assets-new
+    image:
+      reference: my-assets:v1
+      pullPolicy: Never
