@@ -63,28 +63,11 @@ Image Volumes combine several advantages:
 
 # 🏗 Architecture
 
-```mermaid
-                   flowchart LR
+![schema](media/schema.png)
 
-Registry[(OCI Registry)]
-
-Registry --> BusyBox
-Registry --> Assets
-
-BusyBox["BusyBox OCI Image"]
-Assets["Custom Assets OCI Image"]
-
-BusyBox --> Pod
-Assets --> Pod
-
-Pod["Demo Pod"]
-
-Pod --> Old["/assets-old"]
-Pod --> New["/assets-new"]
-```
 ---
 
-## 🧩 Components
+# 🧩 Components
 
 | Component | Description |
 |---|---|
@@ -150,7 +133,7 @@ because the image volume source is not available.
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
 ## Build image
 
